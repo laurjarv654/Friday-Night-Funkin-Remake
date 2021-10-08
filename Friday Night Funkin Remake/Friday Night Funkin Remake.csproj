@@ -46,14 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrow.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +72,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +86,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow1B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow1W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow2B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow2W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow3B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow3W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow4B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow4W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrows.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,6 +15,9 @@ namespace Friday_Night_Funkin_Remake
         public Form1()
         {
             InitializeComponent();
+            GameScreen gs = new GameScreen();
+
+            this.Controls.Add(gs);
         }
     }
 }
