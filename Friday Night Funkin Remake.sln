@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday Night Funkin Remake", "Friday Night Funkin Remake\Friday Night Funkin Remake.csproj", "{9845DDB2-026C-4BD2-A1B9-34EB358342BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9845DDB2-026C-4BD2-A1B9-34EB358342BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9845DDB2-026C-4BD2-A1B9-34EB358342BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9845DDB2-026C-4BD2-A1B9-34EB358342BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9845DDB2-026C-4BD2-A1B9-34EB358342BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {680B786A-1F45-4FBF-B446-5412D2FC46FF}
+	EndGlobalSection
+EndGlobal
