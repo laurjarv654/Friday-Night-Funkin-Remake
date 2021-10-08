@@ -1,7 +1,7 @@
 ﻿
 namespace Friday_Night_Funkin_Remake
 {
-    partial class Form1
+    partial class PauseScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,12 @@ namespace Friday_Night_Funkin_Remake
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.KeyPreview = true;
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
+            this.Text = "PauseScreen";
         }
 
         #endregion
     }
 }
-

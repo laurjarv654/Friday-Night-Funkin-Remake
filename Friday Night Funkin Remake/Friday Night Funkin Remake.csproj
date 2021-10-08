@@ -59,8 +59,23 @@
     <Compile Include="GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuScreen.Designer.cs">
+      <DependentUpon>MenuScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PauseScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PauseScreen.Designer.cs">
+      <DependentUpon>PauseScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +140,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrows.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullBar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

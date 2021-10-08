@@ -56,7 +56,7 @@ namespace Friday_Night_Funkin_Remake
             this.Controls.Add(this.testLabel);
             this.DoubleBuffered = true;
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(829, 576);
+            this.Size = new System.Drawing.Size(818, 497);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
