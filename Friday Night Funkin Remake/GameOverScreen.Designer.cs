@@ -37,7 +37,7 @@ namespace Friday_Night_Funkin_Remake
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "GameOverScreen";
-            this.Size = new System.Drawing.Size(727, 490);
+            this.Size = new System.Drawing.Size(818, 497);
             this.ResumeLayout(false);
 
         }

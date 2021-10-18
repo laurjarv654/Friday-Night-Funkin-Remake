@@ -251,8 +251,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 for (int i = 0; i < arrows[0].Count(); i++)
                 {
-                    Console.WriteLine(counter);
-                    if (arrowRec[0][i].IntersectsWith(greyRec[0]) && counter >= 15)
+                    if (arrowRec[0][i].IntersectsWith(greyRec[0]))
                     {
                         //add points, remove arrow, reset counter
                         gainedPoints += 100;
@@ -273,7 +272,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 for (int i = 0; i < arrows[1].Count(); i++)
                 {
-                    if (arrowRec[1][i].IntersectsWith(greyRec[1]) && counter >= 15)
+                    if (arrowRec[1][i].IntersectsWith(greyRec[1]))
                     {
                         gainedPoints += 100;
                         arrows[1][i].setImage(Properties.Resources.arrow1W);
@@ -292,7 +291,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 for (int i = 0; i < arrows[2].Count(); i++)
                 {
-                    if (arrowRec[2][i].IntersectsWith(greyRec[2]) && counter >= 15)
+                    if (arrowRec[2][i].IntersectsWith(greyRec[2]))
                     {
                         gainedPoints += 100;
                         arrows[2][i].setImage(Properties.Resources.arrow2W);
@@ -311,7 +310,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 for (int i = 0; i < arrows[3].Count(); i++)
                 {
-                    if (arrowRec[3][i].IntersectsWith(greyRec[3]) && counter >= 15)
+                    if (arrowRec[3][i].IntersectsWith(greyRec[3]))
                     {
                         gainedPoints += 100;
                         arrows[3][i].setImage(Properties.Resources.arrow3W);
@@ -364,6 +363,7 @@ namespace Friday_Night_Funkin_Remake
                     form.Controls.Add(gos);
                     form.Controls.Remove(this);
                     form.Controls.Remove(gs);
+                    gos.Focus();
                     break;
                 default:
                     break;
