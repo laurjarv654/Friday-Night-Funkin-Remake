@@ -159,7 +159,7 @@ namespace Friday_Night_Funkin_Remake
             //drawing life bar
             e.Graphics.DrawImage(lifeBar, 20, this.Height - 200, this.Width - 40, 250);
 
-            //drawing rectangles for testing
+            #region drawing rectangles for testing
             Pen pen = new Pen(Color.Red);
             for (int i = 0; i < arrowRec.Count(); i++)
             {
@@ -173,6 +173,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 e.Graphics.DrawRectangle(pen, greyRec[i]);
             }
+            #endregion
         }
 
         public void ArrowInitialization()
@@ -181,7 +182,7 @@ namespace Friday_Night_Funkin_Remake
             X = this.Width/2;
             Y = this.Height + SIZE;
 
-            #region moving arrows
+            #region filling arrow lists
             //makes 4 lists in my 2D arrow list and arrow rectangles(for the 4 arrow directions)
             for (int i = 3; i >= 0; i--)
             {
@@ -189,6 +190,7 @@ namespace Friday_Night_Funkin_Remake
                 arrowRec.Add(new List<Rectangle>());
             }
 
+            int arrowCount = 1;
             //pulling the arrow information from an xml
             XmlReader reader = XmlReader.Create("Resources/arrows.xml");
 
@@ -207,16 +209,20 @@ namespace Friday_Night_Funkin_Remake
                     switch (arrowNum)
                     {
                         case "0":
-                            arrows[0].Add(new Arrow(X-(SIZE*2+50), Y + arrowSpace, 0, Properties.Resources.arrow0));
+                            arrows[0].Add(new Arrow(X-(SIZE*2+50), Y + (arrowCount*arrowSpace), 0, Properties.Resources.arrow0));
+                            arrowCount++;
                             break;
                         case "1":
-                            arrows[1].Add(new Arrow(X-(SIZE), Y + arrowSpace, 1, Properties.Resources.arrow1));
+                            arrows[1].Add(new Arrow(X-(SIZE), Y + (arrowCount*arrowSpace), 1, Properties.Resources.arrow1));
+                            arrowCount++;
                             break;
                         case "2":
-                            arrows[2].Add(new Arrow(X+(SIZE), Y + arrowSpace, 2, Properties.Resources.arrow2));
+                            arrows[2].Add(new Arrow(X+(SIZE), Y + (arrowCount*arrowSpace), 2, Properties.Resources.arrow2));
+                            arrowCount++;
                             break;
                         case "3":
-                            arrows[3].Add(new Arrow(X+(SIZE*2+50), Y + arrowSpace, 3, Properties.Resources.arrow3));
+                            arrows[3].Add(new Arrow(X+(SIZE*2+50), Y + (arrowCount*arrowSpace), 3, Properties.Resources.arrow3));
+                            arrowCount++;
                             break;
                     }
                 }
@@ -248,15 +254,15 @@ namespace Friday_Night_Funkin_Remake
                     Console.WriteLine(counter);
                     if (arrowRec[0][i].IntersectsWith(greyRec[0]) && counter >= 15)
                     {
-                        //alter image to lighter version
+                        //add points, remove arrow, reset counter
                         gainedPoints += 100;
                         arrows[0][i].setImage(Properties.Resources.arrow0W);
                         arrows[0].RemoveAt(i);
                         counter = 0;
                     }
-                    else if (counter >= 15)
+                    else if (counter >= 10)
                     {
-                        //less points
+                        //lose life, reset counter to 0
                         lifePoints -= 5;
                         counter = 0;
                         LifeBarDecision();
@@ -274,7 +280,7 @@ namespace Friday_Night_Funkin_Remake
                         arrows[1].RemoveAt(i);
                         counter = 0;
                     }
-                    else if (counter >= 15)
+                    else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
@@ -293,7 +299,7 @@ namespace Friday_Night_Funkin_Remake
                         arrows[2].RemoveAt(i);
                         counter = 0;
                     }
-                    else if (counter >= 15)
+                    else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
@@ -312,7 +318,7 @@ namespace Friday_Night_Funkin_Remake
                         arrows[3].RemoveAt(i);
                         counter = 0;
                     }
-                    else if (counter >= 15)
+                    else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
@@ -327,8 +333,7 @@ namespace Friday_Night_Funkin_Remake
 
         public void LifeBarDecision()
         {
-            //TODO - make gameover screen and add to case 0
-            //chaging the life bar image based on how many points you have
+            //chaging the life bar image based on how many points you have/gameover
             switch (lifePoints)
             {
                 case 70:
@@ -353,6 +358,12 @@ namespace Friday_Night_Funkin_Remake
                     lifeBar = Properties.Resources.bar7;
                     break;
                 case 0:
+                    GameOverScreen gos = new GameOverScreen();
+                    GameScreen gs = new GameScreen();
+                    Form form = this.FindForm();
+                    form.Controls.Add(gos);
+                    form.Controls.Remove(this);
+                    form.Controls.Remove(gs);
                     break;
                 default:
                     break;
