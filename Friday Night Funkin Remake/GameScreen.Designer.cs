@@ -43,7 +43,7 @@ namespace Friday_Night_Funkin_Remake
             // testLabel
             // 
             this.testLabel.AutoSize = true;
-            this.testLabel.Location = new System.Drawing.Point(35, 451);
+            this.testLabel.Location = new System.Drawing.Point(216, 209);
             this.testLabel.Name = "testLabel";
             this.testLabel.Size = new System.Drawing.Size(46, 17);
             this.testLabel.TabIndex = 0;
@@ -58,8 +58,8 @@ namespace Friday_Night_Funkin_Remake
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(818, 497);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

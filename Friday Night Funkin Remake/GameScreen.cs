@@ -33,17 +33,19 @@ namespace Friday_Night_Funkin_Remake
         //key press booleans
         Boolean upDown, downDown, rightDown, leftDown, escapeDown;
 
+        
+
         Image lifeBar = Properties.Resources.bar0;
         #endregion
 
         public GameScreen()
         {
             InitializeComponent();
+            Focus();
 
             ArrowInitialization();
         }
-
-        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -61,7 +63,7 @@ namespace Friday_Night_Funkin_Remake
                     break;
                 case Keys.Escape:
                     escapeDown = true;
-                        break;
+                    break;
             }
         }
 
@@ -238,10 +240,12 @@ namespace Friday_Night_Funkin_Remake
 
         public void Collisions()
         {
+
             if (leftDown == true)
             {
                 for (int i = 0; i < arrows[0].Count(); i++)
                 {
+                    Console.WriteLine(counter);
                     if (arrowRec[0][i].IntersectsWith(greyRec[0]) && counter >= 15)
                     {
                         //alter image to lighter version
