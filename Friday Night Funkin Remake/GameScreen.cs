@@ -31,7 +31,7 @@ namespace Friday_Night_Funkin_Remake
         List<Rectangle> greyRec = new List<Rectangle>();
 
         //key press booleans
-        Boolean upDown, downDown, rightDown, leftDown, escapeDown;
+        Boolean upDown, downDown, rightDown, leftDown, wDown, aDown, sDown, dDown, escapeDown;
 
         
 
@@ -64,6 +64,18 @@ namespace Friday_Night_Funkin_Remake
                 case Keys.Escape:
                     escapeDown = true;
                     break;
+                case Keys.W:
+                    wDown = true;
+                    break;
+                case Keys.A:
+                    aDown = true;
+                    break;
+                case Keys.S:
+                    sDown = true;
+                    break;
+                case Keys.D:
+                    dDown = true;
+                    break;
             }
         }
 
@@ -85,6 +97,18 @@ namespace Friday_Night_Funkin_Remake
                     break;
                 case Keys.Escape:
                     escapeDown = false;
+                    break;
+                case Keys.W:
+                    wDown = false;
+                    break;
+                case Keys.A:
+                    aDown = false;
+                    break;
+                case Keys.S:
+                    sDown = false;
+                    break;
+                case Keys.D:
+                    dDown = false;
                     break;
             }
         }
@@ -157,7 +181,7 @@ namespace Friday_Night_Funkin_Remake
             #endregion
 
             //drawing life bar
-            e.Graphics.DrawImage(lifeBar, 20, this.Height - 200, this.Width - 40, 250);
+            e.Graphics.DrawImage(lifeBar, 20, this.Height - 200, this.Width - 50, 250);
 
             #region drawing rectangles for testing
             Pen pen = new Pen(Color.Red);
@@ -182,7 +206,7 @@ namespace Friday_Night_Funkin_Remake
             X = this.Width/2;
             Y = this.Height + SIZE;
 
-            #region filling arrow lists
+            #region filling the moving arrow lists
             //makes 4 lists in my 2D arrow list and arrow rectangles(for the 4 arrow directions)
             for (int i = 3; i >= 0; i--)
             {
@@ -247,7 +271,7 @@ namespace Friday_Night_Funkin_Remake
         public void Collisions()
         {
 
-            if (leftDown == true)
+            if (leftDown == true||aDown == true)
             {
                 for (int i = 0; i < arrows[0].Count(); i++)
                 {
@@ -268,7 +292,7 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
-            if (upDown == true)
+            if (upDown == true||wDown == true)
             {
                 for (int i = 0; i < arrows[1].Count(); i++)
                 {
@@ -287,7 +311,7 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
-            if (downDown == true)
+            if (downDown == true|| sDown == true)
             {
                 for (int i = 0; i < arrows[2].Count(); i++)
                 {
@@ -306,7 +330,7 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
-            if (rightDown == true)
+            if (rightDown == true||dDown == true)
             {
                 for (int i = 0; i < arrows[3].Count(); i++)
                 {
