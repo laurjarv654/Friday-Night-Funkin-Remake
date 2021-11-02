@@ -86,6 +86,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 case Keys.Up:
                     upDown = false;
+                    Console.WriteLine("KeyUp");
                     break;
                 case Keys.Down:
                     downDown = false;
@@ -291,8 +292,12 @@ namespace Friday_Night_Funkin_Remake
                         //lose life, reset counter to 0
                         lifePoints -= 5;
                         counter = 0;
-                        //errorSound.Play();
+                        errorSound.Play();
                         LifeBarDecision();
+                    }
+                    else
+                    {
+
                     }
                 }
             }
@@ -300,6 +305,7 @@ namespace Friday_Night_Funkin_Remake
             {
                 for (int i = 0; i < arrows[1].Count(); i++)
                 {
+                    int test = 0;
                     if (arrowRec[1][i].IntersectsWith(greyRec[1]))
                     {
                         gainedPoints += 100;
@@ -309,9 +315,9 @@ namespace Friday_Night_Funkin_Remake
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
-                        counter = 0;
                         errorSound.Play();
                         LifeBarDecision();
+                        counter = 0;
                     }
                 }
             }
