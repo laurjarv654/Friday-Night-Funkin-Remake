@@ -185,7 +185,7 @@ namespace Friday_Night_Funkin_Remake.Properties {
         ///&lt;arrows&gt;
         ///  &lt;arrow&gt;
         ///    &lt;number&gt;0&lt;/number&gt;
-        ///    &lt;space&gt;6&lt;/space&gt;
+        ///    &lt;space&gt;0&lt;/space&gt;
         ///  &lt;/arrow&gt;
         ///  &lt;arrow&gt;
         ///    &lt;number&gt;1&lt;/number&gt;
@@ -193,18 +193,23 @@ namespace Friday_Night_Funkin_Remake.Properties {
         ///  &lt;/arrow&gt;
         ///  &lt;arrow&gt;
         ///    &lt;number&gt;2&lt;/number&gt;
-        ///    &lt;space&gt;200&lt;/space&gt;
+        ///    &lt;space&gt;100&lt;/space&gt;
         ///  &lt;/arrow&gt;
         ///  &lt;arrow&gt;
         ///    &lt;number&gt;3&lt;/number&gt;
-        ///    &lt;space&gt;300&lt;/space&gt;
+        ///    &lt;space&gt;100&lt;/space&gt;
         ///  &lt;/arrow&gt;
         ///  &lt;arrow&gt;
         ///    &lt;number&gt;1&lt;/number&gt;
-        ///    &lt;space&gt;400&lt;/space&gt;
+        ///    &lt;space&gt;100&lt;/space&gt;
         ///  &lt;/arrow&gt;
-        ///&lt;/arrows&gt;
-        ///.
+        ///  &lt;arrow&gt;
+        ///    &lt;number&gt;0&lt;/number&gt;
+        ///    &lt;space&gt;100&lt;/space&gt;
+        ///  &lt;/arrow&gt;
+        ///  &lt;arrow&gt;
+        ///    &lt;number&gt;1&lt;/number&gt;
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string arrows {
             get {
@@ -299,6 +304,15 @@ namespace Friday_Night_Funkin_Remake.Properties {
             get {
                 object obj = ResourceManager.GetObject("bar8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream FNFerrorSound {
+            get {
+                return ResourceManager.GetStream("FNFerrorSound", resourceCulture);
             }
         }
     }

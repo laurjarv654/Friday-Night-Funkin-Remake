@@ -177,5 +177,8 @@
   <ItemGroup>
     <None Include="Resources\fullBar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FNFerrorSound.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Security.Permissions;
+using System.Media;
 
 namespace Friday_Night_Funkin_Remake
 {
@@ -270,6 +271,8 @@ namespace Friday_Night_Funkin_Remake
 
         public void Collisions()
         {
+            SoundPlayer errorSound = new SoundPlayer(Properties.Resources.FNFerrorSound);
+
 
             if (leftDown == true||aDown == true)
             {
@@ -281,13 +284,14 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[0][i].setImage(Properties.Resources.arrow0W);
                         arrows[0].RemoveAt(i);
-                        counter = 0;
+                        
                     }
                     else if (counter >= 10)
                     {
                         //lose life, reset counter to 0
                         lifePoints -= 5;
                         counter = 0;
+                        //errorSound.Play();
                         LifeBarDecision();
                     }
                 }
@@ -301,12 +305,12 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[1][i].setImage(Properties.Resources.arrow1W);
                         arrows[1].RemoveAt(i);
-                        counter = 0;
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
+                        errorSound.Play();
                         LifeBarDecision();
                     }
                 }
@@ -320,12 +324,12 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[2][i].setImage(Properties.Resources.arrow2W);
                         arrows[2].RemoveAt(i);
-                        counter = 0;
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
+                        errorSound.Play();
                         LifeBarDecision();
                     }
                 }
@@ -339,13 +343,14 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[3][i].setImage(Properties.Resources.arrow3W);
                         arrows[3].RemoveAt(i);
-                        counter = 0;
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
                         counter = 0;
+                        errorSound.Play();
                         LifeBarDecision();
+                        
                     }
                 }
             }
