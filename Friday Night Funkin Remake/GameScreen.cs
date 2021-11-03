@@ -86,7 +86,6 @@ namespace Friday_Night_Funkin_Remake
             {
                 case Keys.Up:
                     upDown = false;
-                    Console.WriteLine("KeyUp");
                     break;
                 case Keys.Down:
                     downDown = false;
@@ -287,10 +286,10 @@ namespace Friday_Night_Funkin_Remake
                         //add points, remove arrow, reset counter
                         gainedPoints += 100;
                         arrows[0][i].setImage(Properties.Resources.arrow0W);
-                        arrows[0].RemoveAt(i);
                         Console.Beep((int)arrows[0][i].note, 200);
+                        arrows[0].RemoveAt(i);
                     }
-                    else if (counter >= 15)
+                    else if (counter >= 20)
                     {
                         //lose life, reset counter to 0
                         lifePoints -= 5;
@@ -308,15 +307,17 @@ namespace Friday_Night_Funkin_Remake
                     {
                         gainedPoints += 100;
                         arrows[1][i].setImage(Properties.Resources.arrow1W);
-                        arrows[1].RemoveAt(i);
                         Console.Beep((int)arrows[1][i].note, 200);
+                        arrows[1].RemoveAt(i);
+                        Console.WriteLine("up intersected");
                     }
-                    else if (counter >= 10)
+                    else if (counter >= 20)
                     {
                         lifePoints -= 5;
                         //errorSound.Play();
                         LifeBarDecision();
                         counter = 0;
+                        Console.WriteLine("up didn't intersect");
                     }
                 }
             }
@@ -328,10 +329,10 @@ namespace Friday_Night_Funkin_Remake
                     {
                         gainedPoints += 100;
                         arrows[2][i].setImage(Properties.Resources.arrow2W);
-                        arrows[2].RemoveAt(i);
                         Console.Beep((int)arrows[2][i].note, 200);
+                        arrows[2].RemoveAt(i);
                     }
-                    else if (counter >= 10)
+                    else if (counter >= 20)
                     {
                         lifePoints -= 5;
                         //errorSound.Play();
@@ -348,10 +349,10 @@ namespace Friday_Night_Funkin_Remake
                     {
                         gainedPoints += 100;
                         arrows[3][i].setImage(Properties.Resources.arrow3W);
-                        arrows[3].RemoveAt(i);
                         Console.Beep((int)arrows[3][i].note, 200);
+                        arrows[3].RemoveAt(i);
                     }
-                    else if (counter >= 10)
+                    else if (counter >= 20)
                     {
                         lifePoints -= 5;
                         ////errorSound.Play();
@@ -421,6 +422,15 @@ namespace Friday_Night_Funkin_Remake
                     break;
                 case "D":
                     noteFrequency = 294;
+                    break;
+                case "E":
+                    noteFrequency = 330;
+                    break;
+                case "F":
+                    noteFrequency = 349;
+                    break;
+                case "G":
+                    noteFrequency = 392;
                     break;
             }
 
