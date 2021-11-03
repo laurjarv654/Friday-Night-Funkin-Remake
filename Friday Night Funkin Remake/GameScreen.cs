@@ -18,8 +18,8 @@ namespace Friday_Night_Funkin_Remake
 
         #region global variables
         //arrow variables
-        int X, Y, arrowSpace, SIZE = 75, SPEED = 8;
-        string arrowNum, space = "1";
+        int X, Y, arrowSpace, SIZE = 75, SPEED = 8, noteFrequency;
+        string arrowNum, space = "1", arrowNote;
 
         //score variables
         int lifePoints = 80, gainedPoints = 0, counter = 0;
@@ -228,6 +228,9 @@ namespace Friday_Night_Funkin_Remake
                     arrowNum = reader.ReadString();
                     reader.ReadToNextSibling("space");
                     space = reader.ReadString();
+                    reader.ReadToNextSibling("note");
+                    arrowNote = reader.ReadString();
+                    FindNote();
 
                     arrowSpace = Convert.ToInt32(space);
 
@@ -235,19 +238,19 @@ namespace Friday_Night_Funkin_Remake
                     switch (arrowNum)
                     {
                         case "0":
-                            arrows[0].Add(new Arrow(X-(SIZE*2+50), Y + (arrowCount*arrowSpace), 0, Properties.Resources.arrow0));
+                            arrows[0].Add(new Arrow(X-(SIZE*2+50), Y + (arrowCount*arrowSpace), 0, Properties.Resources.arrow0, noteFrequency));
                             arrowCount++;
                             break;
                         case "1":
-                            arrows[1].Add(new Arrow(X-(SIZE), Y + (arrowCount*arrowSpace), 1, Properties.Resources.arrow1));
+                            arrows[1].Add(new Arrow(X-(SIZE), Y + (arrowCount*arrowSpace), 1, Properties.Resources.arrow1, noteFrequency));
                             arrowCount++;
                             break;
                         case "2":
-                            arrows[2].Add(new Arrow(X+(SIZE), Y + (arrowCount*arrowSpace), 2, Properties.Resources.arrow2));
+                            arrows[2].Add(new Arrow(X+(SIZE), Y + (arrowCount*arrowSpace), 2, Properties.Resources.arrow2, noteFrequency));
                             arrowCount++;
                             break;
                         case "3":
-                            arrows[3].Add(new Arrow(X+(SIZE*2+50), Y + (arrowCount*arrowSpace), 3, Properties.Resources.arrow3));
+                            arrows[3].Add(new Arrow(X+(SIZE*2+50), Y + (arrowCount*arrowSpace), 3, Properties.Resources.arrow3, noteFrequency));
                             arrowCount++;
                             break;
                     }
@@ -257,10 +260,10 @@ namespace Friday_Night_Funkin_Remake
 
             #region grey arrows
             //filling the grey arrows list 
-            greyArrows.Add(new Arrow(X-(SIZE*2+50), 10, 0, Properties.Resources.arrow0G));
-            greyArrows.Add(new Arrow(X -(SIZE), 10, 0, Properties.Resources.arrow1G));
-            greyArrows.Add(new Arrow(X + (SIZE), 10, SIZE, Properties.Resources.arrow2G));
-            greyArrows.Add(new Arrow(X + (SIZE*2+50), 10, SIZE, Properties.Resources.arrow3G));
+            greyArrows.Add(new Arrow(X-(SIZE*2+50), 10, 0, Properties.Resources.arrow0G, 0));
+            greyArrows.Add(new Arrow(X -(SIZE), 10, 0, Properties.Resources.arrow1G, 0));
+            greyArrows.Add(new Arrow(X + (SIZE), 10, SIZE, Properties.Resources.arrow2G, 0));
+            greyArrows.Add(new Arrow(X + (SIZE*2+50), 10, SIZE, Properties.Resources.arrow3G, 0));
 
             //setting up the grey arrow rectangles
             for (int i = 0; i < greyArrows.Count(); i++)
@@ -285,37 +288,33 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[0][i].setImage(Properties.Resources.arrow0W);
                         arrows[0].RemoveAt(i);
-                        
+                        Console.Beep((int)arrows[0][i].note, 200);
                     }
-                    else if (counter >= 10)
+                    else if (counter >= 15)
                     {
                         //lose life, reset counter to 0
                         lifePoints -= 5;
-                        counter = 0;
-                        errorSound.Play();
+                        //errorSound.Play();
                         LifeBarDecision();
-                    }
-                    else
-                    {
-
-                    }
+                        counter = 0;
+                    } 
                 }
             }
             if (upDown == true||wDown == true)
             {
                 for (int i = 0; i < arrows[1].Count(); i++)
                 {
-                    int test = 0;
                     if (arrowRec[1][i].IntersectsWith(greyRec[1]))
                     {
                         gainedPoints += 100;
                         arrows[1][i].setImage(Properties.Resources.arrow1W);
                         arrows[1].RemoveAt(i);
+                        Console.Beep((int)arrows[1][i].note, 200);
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
-                        errorSound.Play();
+                        //errorSound.Play();
                         LifeBarDecision();
                         counter = 0;
                     }
@@ -330,13 +329,14 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[2][i].setImage(Properties.Resources.arrow2W);
                         arrows[2].RemoveAt(i);
+                        Console.Beep((int)arrows[2][i].note, 200);
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
-                        counter = 0;
-                        errorSound.Play();
+                        //errorSound.Play();
                         LifeBarDecision();
+                        counter = 0;
                     }
                 }
             }
@@ -349,14 +349,15 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[3][i].setImage(Properties.Resources.arrow3W);
                         arrows[3].RemoveAt(i);
+                        Console.Beep((int)arrows[3][i].note, 200);
                     }
                     else if (counter >= 10)
                     {
                         lifePoints -= 5;
-                        counter = 0;
-                        errorSound.Play();
+                        ////errorSound.Play();
                         LifeBarDecision();
-                        
+                        counter = 0;
+
                     }
                 }
             }
@@ -404,5 +405,26 @@ namespace Friday_Night_Funkin_Remake
                     break;
             }
         }
+
+        public void FindNote()
+        {
+            switch (arrowNote)
+            {
+                case "A":
+                    noteFrequency = 220;
+                    break;
+                case "B":
+                    noteFrequency = 247;
+                    break;
+                case "C":
+                    noteFrequency = 262;
+                    break;
+                case "D":
+                    noteFrequency = 294;
+                    break;
+            }
+
+        }
+
     }
 }
