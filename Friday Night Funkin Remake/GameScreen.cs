@@ -287,7 +287,6 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[0][i].setImage(Properties.Resources.arrow0W);
                         Console.Beep((int)arrows[0][i].note, 200);
-                        arrows[0].RemoveAt(i);
                     }
                     else if (counter >= 20)
                     {
@@ -308,7 +307,6 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[1][i].setImage(Properties.Resources.arrow1W);
                         Console.Beep((int)arrows[1][i].note, 200);
-                        arrows[1].RemoveAt(i);
                         Console.WriteLine("up intersected");
                     }
                     else if (counter >= 20)
@@ -330,7 +328,6 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[2][i].setImage(Properties.Resources.arrow2W);
                         Console.Beep((int)arrows[2][i].note, 200);
-                        arrows[2].RemoveAt(i);
                     }
                     else if (counter >= 20)
                     {
@@ -350,7 +347,6 @@ namespace Friday_Night_Funkin_Remake
                         gainedPoints += 100;
                         arrows[3][i].setImage(Properties.Resources.arrow3W);
                         Console.Beep((int)arrows[3][i].note, 200);
-                        arrows[3].RemoveAt(i);
                     }
                     else if (counter >= 20)
                     {
@@ -363,6 +359,18 @@ namespace Friday_Night_Funkin_Remake
                 }
             }
             counter++;
+
+            for (int i = 0; i<arrows.Count(); i++)
+            {
+                for (int j = 0; j<arrows[i].Count(); j++)
+                {
+                    if (arrowRec[i][j].Y < 0)
+                    {
+                        arrows[i].RemoveAt(j);
+                        arrowRec[i].RemoveAt(j);
+                    }
+                }
+            }
             //shows points for testing purposes
             testLabel.Text = "G:" + Convert.ToString(gainedPoints) + "       L:" + Convert.ToString(lifePoints);
         }
