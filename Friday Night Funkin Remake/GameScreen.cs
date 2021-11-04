@@ -276,7 +276,7 @@ namespace Friday_Night_Funkin_Remake
         {
             SoundPlayer errorSound = new SoundPlayer(Properties.Resources.FNFerrorSound);
 
-
+            #region left
             if (leftDown == true||aDown == true)
             {
                 for (int i = 0; i < arrows[0].Count(); i++)
@@ -298,6 +298,9 @@ namespace Friday_Night_Funkin_Remake
                     } 
                 }
             }
+            #endregion
+
+            #region up
             if (upDown == true||wDown == true)
             {
                 for (int i = 0; i < arrows[1].Count(); i++)
@@ -319,6 +322,9 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
+            #endregion
+            
+            #region down
             if (downDown == true|| sDown == true)
             {
                 for (int i = 0; i < arrows[2].Count(); i++)
@@ -338,6 +344,9 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
+            #endregion
+
+            #region right
             if (rightDown == true||dDown == true)
             {
                 for (int i = 0; i < arrows[3].Count(); i++)
@@ -358,8 +367,10 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
+            #endregion
             counter++;
 
+            #region arrow removal
             for (int i = 0; i<arrows.Count(); i++)
             {
                 for (int j = 0; j<arrows[i].Count(); j++)
@@ -371,6 +382,8 @@ namespace Friday_Night_Funkin_Remake
                     }
                 }
             }
+            #endregion
+
             //shows points for testing purposes
             testLabel.Text = "G:" + Convert.ToString(gainedPoints) + "       L:" + Convert.ToString(lifePoints);
         }
